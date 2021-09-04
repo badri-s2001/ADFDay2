@@ -18,7 +18,7 @@ g.	Write new file with following actions
     
 - Create an input file named abc.txt with many words in it
 - Give it as an arguement when you run the file with python
-    python3 main.py abc.txt
+- python3 main.py abc.txt
 - Some output is printed in console
 - While some output is displayed in a unique auto generated file
 
