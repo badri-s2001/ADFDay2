@@ -21,6 +21,7 @@ else:
     cap_third = []
     cap_fifth = []
     new_lines = []
+    new_string = ""
 
     with open(input_file, mode='r') as f:
 
@@ -28,6 +29,8 @@ else:
         list_words = f_contents.split()
         cap_fifth = list_words[::]
         cap_fifth[4] = cap_fifth[4].upper()
+        new_string = f_contents.replace(" ", "-")
+        new_string = new_string.replace("\n", ";")
 
         for count, word in enumerate(list_words):
 
@@ -67,23 +70,10 @@ else:
 
         f.close()
 
-    with open(input_file, mode='r') as f:
-        lines = f.readlines()
-
-        for line in lines:
-            line = line.replace(" ", "-")
-            line = line.replace("\n", ";")
-            new_lines.append(line)
-
-        f.close()
-
     with open(unique_file, mode='w') as my_file:
         my_file.write(f"Split the words based on the vowels\n{str(vowel_words)}\n\n")
         my_file.write(f"Capitalize 3rd letter of every word\n{str(cap_third)}\n\n")
         my_file.write(f"Capitalize 5th word of the file\n{str(cap_fifth)}\n\n")
-        my_file.write("Content after replacing space with '-' and new line with ';'\n")
-        for line in new_lines:
-            my_file.write(line)
+        my_file.write(f"Content after replacing space with '-' and new line with ';'\n{new_string}")
 
         my_file.close()
-
